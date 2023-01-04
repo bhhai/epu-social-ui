@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(inputs);
-      const res = await axios.post("http://localhost:8800/api/users/timeLogin", { loginTime: moment.utc(), username: inputs.username }, {
+      const res = await axios.post("https://epu-social-api.onrender.com/api/users/timeLogin", { loginTime: moment.utc(), username: inputs.username }, {
         withCredentials: true,
       })
       navigate("/")
