@@ -17,6 +17,13 @@ $themes: (
   ),
 );
 
+input {
+  &:focus {
+    border: 0;
+    outline: 0;
+  }
+}
+
 @mixin themify($themes) {
   @each $theme, $map in $themes {
     .theme-#{$theme} & {

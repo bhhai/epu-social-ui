@@ -1,0 +1,34 @@
+.userInfo {
+  display: flex;
+  gap: 12px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    &__info {
+      display: flex;
+      align-items: center;
+      .tick {
+        margin-left: 4px;
+        width: 14px;
+        height: 14px;
+        color: #2D88FF;
+      }
+    }
+
+    .name {
+      font-weight: 500;
+    }
+
+    .date {
+      font-size: 12px;
+    }
+  }
+}

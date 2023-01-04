@@ -5,6 +5,7 @@
   gap: 10px;
   height: 250px;
   margin-bottom: 30px;
+  width: 100%;
 
   @include mobile {
     height: 50px;
@@ -22,6 +23,7 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    height: 200px;
 
     @include mobile {
       flex: none;
@@ -70,5 +72,22 @@
        margin: auto;
       }
     }
+  }
+}
+
+.storyItem {
+  height: 240px;
+  border-radius: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  
+  .userInfo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  &.view {
+    height: 100%;
   }
 }

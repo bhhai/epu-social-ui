@@ -21,9 +21,9 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await axios.post(BASE_URL + "api/auth/register", inputs);
+      await axios.post(BASE_URL + "auth/register", inputs);
     } catch (err) {
-      setErr(err.response.data);
+      setErr(err?.response?.data || "err");
     }
   };
 

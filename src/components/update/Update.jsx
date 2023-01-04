@@ -4,7 +4,7 @@ import "./update.scss";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
-export default function Update ({ setOpenUpdate, user }) {
+export default function Update({ setOpenUpdate, user }) {
   const [cover, setCover] = useState(null);
   const [profile, setProfile] = useState(null);
   const [texts, setTexts] = useState({
@@ -13,6 +13,9 @@ export default function Update ({ setOpenUpdate, user }) {
     name: user.name,
     city: user.city,
     website: user.website,
+    learning: user.learning,
+    working: user.working,
+    des: user.des,
   });
 
   const upload = async (file) => {
@@ -28,7 +31,7 @@ export default function Update ({ setOpenUpdate, user }) {
   };
 
   const handleChange = (e) => {
-    setTexts((prev) => ({ ...prev, [e.target.name]: [e.target.value] }));
+    setTexts((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const queryClient = useQueryClient();
@@ -49,18 +52,20 @@ export default function Update ({ setOpenUpdate, user }) {
     e.preventDefault();
 
     //TODO: find a better way to get image URL
-    
+
     let coverUrl;
     let profileUrl;
     coverUrl = cover ? await upload(cover) : user.coverPic;
     console.log(coverUrl)
     profileUrl = profile ? await upload(profile) : user.profilePic;
-    
+
+    console.log(texts)
+
     mutation.mutate({ ...texts, coverPic: coverUrl, profilePic: profileUrl });
     setOpenUpdate(false);
     setCover(null);
     setProfile(null);
-    
+
   };
   return (
     <div className="update">
@@ -142,6 +147,27 @@ export default function Update ({ setOpenUpdate, user }) {
             type="text"
             name="website"
             value={texts.website}
+            onChange={handleChange}
+          />
+          <label>Works at</label>
+          <input
+            type="text"
+            name="working"
+            value={texts.working}
+            onChange={handleChange}
+          />
+          <label>Studied at</label>
+          <input
+            type="text"
+            name="learning"
+            value={texts.learning}
+            onChange={handleChange}
+          />
+          <label>Describe</label>
+          <input
+            type="text"
+            name="des"
+            value={texts.des}
             onChange={handleChange}
           />
           <button onClick={handleClick}>Update</button>

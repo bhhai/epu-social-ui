@@ -45,15 +45,8 @@
           .userInfo {
             display: flex;
             align-items: center;
-            gap: 20px;
             position: relative;
-
-            img {
-              width: 40px;
-              height: 40px;
-              border-radius: 50%;
-              object-fit: cover;
-            }
+            text-decoration: none;
 
             .online {
               width: 12px;
@@ -78,21 +71,10 @@
           .buttons {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
 
             button {
-              border: none;
-              padding: 5px;
-              color: white;
-              cursor: pointer;
-
-              &:first-child {
-                background-color: #5271ff;
-              }
-
-              &:last-child {
-                background-color: #f0544f;
-              }
+              text-transform: capitalize;
             }
           }
         }

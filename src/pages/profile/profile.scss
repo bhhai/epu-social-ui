@@ -39,7 +39,7 @@
       }
 
       .uInfo {
-        height: 180px;
+        // height: 180px;
         -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
         -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
         box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
@@ -48,15 +48,51 @@
         color: themed("textColor");
         padding: 50px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        // align-items: center;
+        // justify-content: space-between;
         margin-bottom: 20px;
+
+        .des {
+          .name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 22px;
+            .icon {
+              margin-left: 5px;
+            }
+          }
+          text-align: center;
+          width: 70%;
+          margin: 0 auto;
+          margin-top: 50px;
+          margin-bottom: 20px;
+        }
+        .info {
+          &-item {
+            display: flex;
+            align-items: center;
+
+            &:not(:first-child) {
+              margin-top: 10px;
+            }
+            .value {
+              margin-left: 10px;
+            }
+          }
+          .buttons {
+            margin-top: 20px;
+            text-align: center;
+          }
+        }
 
         @include mobile{
           flex-direction: column;
           height: 30vh;
           padding: 20px;
-          margin-top: 100px;
+          margin-top: 20px;
         }
 
         .left {

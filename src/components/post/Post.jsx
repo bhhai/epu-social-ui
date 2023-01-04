@@ -12,6 +12,7 @@ import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
+import User from "../user/User";
 
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
@@ -58,24 +59,11 @@ const Post = ({ post }) => {
     deleteMutation.mutate(post.id);
   };
 
-  console.log(post);
-
   return (
     <div className="post">
       <div className="container">
         <div className="user">
-          <div className="userInfo">
-            <img src={post.profilePic ? "/upload/" + post.profilePic : post?.avt} alt="" />
-            <div className="details">
-              <Link
-                to={`/profile/${post.userId}`}
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <span className="name">{post.name}</span>
-              </Link>
-              <span className="date">{moment(post.createdAt).fromNow()}</span>
-            </div>
-          </div>
+          <User data={post} />
           <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
           {menuOpen && post.userId === currentUser.id && (
             <button onClick={handleDelete}>delete</button>
@@ -96,7 +84,7 @@ const Post = ({ post }) => {
             ) : (
               <FavoriteBorderOutlinedIcon />
             )}
-            {data?.length} Likes
+            {data?.length} Like{data?.length === 0 ? null : "s"}
           </div>
           <div className="item"
             onClick={() => {

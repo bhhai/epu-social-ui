@@ -1,6 +1,13 @@
 @import "../../style.scss";
 
 .share {
+  @include mobile {
+    margin-top: 130px;
+  }
+  @include tablet {
+    margin-top: 130px;
+  }
+  
   @include themify($themes) {
     -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
