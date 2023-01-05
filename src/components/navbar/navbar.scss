@@ -13,27 +13,13 @@
     background-color: themed("bg");
     color:themed("textColor");
     z-index: 999;
-    position: relative;
 
-    .box {
-      padding: 20px;
-      position: absolute;
-      border-radius: 4px;
-      top: 70px;
-      left: 312px;
-      width: 500px;
-      background-color: themed("bg");
-      box-shadow: 0px 0px 25px -10px rgb(0 0 0 / 3);
-
-      .users {
-        margin-top: 10px;
-      }
-    }
-
+    
     .left {
       display: flex;
       align-items: center;
       gap: 30px;
+      position: relative;
 
       span {
         font-weight: bold;
@@ -64,6 +50,27 @@
           }
         }
       }
+      .box {
+        padding: 20px;
+        position: absolute;
+        border-radius: 4px;
+        top: 40px;
+        left: 295px;
+        width: 500px;
+        background-color: themed("bg");
+        box-shadow: 0px 0px 25px -10px rgb(0 0 0 / 3);
+        font-size: 14px;
+
+        .label {
+          font-size: 14px;
+        }
+  
+        .users {
+          margin-top: 10px;
+          font-size: 14px;
+        }
+      }
+  
     }
 
     .right {

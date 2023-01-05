@@ -56,6 +56,23 @@ const Navbar = () => {
           <SearchOutlinedIcon />
           <input type="text" placeholder="Search..." onChange={(e) => handleSearch(e)} value={search} onClick={() => setFormSearch(true)} onBlur={() => setFormSearch(false)} />
         </div>
+
+        {
+          formSearch && (
+            <div className="box">
+              <span className="label">Recommend search</span>
+              <div className="users">
+                {
+                  hotUser && hotUser?.length > 0 && hotUser?.slice(0, 5).map((item) => (
+                    <div className="user" key={item.id}>
+                      <User data={item} hiddenTime />
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          )
+        }
       </div>
       <div className="right">
         <PersonOutlinedIcon />
@@ -69,23 +86,6 @@ const Navbar = () => {
           <span>{currentUser.name}</span>
         </Link>
       </div>
-
-      {
-        formSearch && (
-          <div className="box">
-            <span className="label">Recommend search</span>
-            <div className="users">
-              {
-                hotUser && hotUser?.length > 0 && hotUser?.slice(0, 5).map((item) => (
-                  <div className="user" key={item.id}>
-                    <User data={item} hiddenTime />
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        )
-      }
     </div>
   );
 };

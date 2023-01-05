@@ -5,13 +5,17 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import "./user.scss"
 
 function User(props) {
-  const { data, isAvatar, hiddenTime } = props
+  const { data, isAvatar, hiddenTime, isOnline } = props
   return (
     <div className="userInfo">
       {
         data && (
           <>
-            <img src={data?.profilePic ? "/upload/" + data?.profilePic : data?.avt || "https://w7.pngwing.com/pngs/754/2/png-transparent-samsung-galaxy-a8-a8-user-login-telephone-avatar-pawn-blue-angle-sphere-thumbnail.png"} alt="" />
+            <div className='avt'>
+              {isOnline && <div className='dot'></div>}
+              <img src={data?.profilePic ? "/upload/" + data?.profilePic : data?.avt || "https://w7.pngwing.com/pngs/754/2/png-transparent-samsung-galaxy-a8-a8-user-login-telephone-avatar-pawn-blue-angle-sphere-thumbnail.png"} alt="" />
+            </div>
+
             <div className="details">
               <Link
                 to={`/profile/${data.userId}`}
