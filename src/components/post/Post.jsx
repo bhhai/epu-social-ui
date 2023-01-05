@@ -13,6 +13,7 @@ import { makeRequest } from "../../axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import User from "../user/User";
+import { Button } from "@mui/material";
 
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
@@ -65,8 +66,8 @@ const Post = ({ post }) => {
         <div className="user">
           <User data={post} />
           <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
-          {menuOpen && post.userId === currentUser.id && (
-            <button onClick={handleDelete}>delete</button>
+          {menuOpen && +post.userId === +currentUser.id && (
+            <Button onClick={handleDelete}>delete</Button>
           )}
         </div>
         <div className="content">

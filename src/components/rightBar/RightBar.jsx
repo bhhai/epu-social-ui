@@ -32,6 +32,7 @@ const RightBar = () => {
     getData();
   }, [])
 
+
   return (
     <div className="rightBar">
       <div className="container">

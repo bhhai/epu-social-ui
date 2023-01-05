@@ -17,9 +17,7 @@ export const AuthContextProvider = ({ children }) => {
       withCredentials: true,
     });
 
-    if (res.code === 200) {
-      setCookie('accessToken', res.data.data.token)
-    }
+    // setCookie('accessToken', res.data.data.token, { domain: 'epusocial.online' })
 
     setCurrentUser(res.data.data)
   };

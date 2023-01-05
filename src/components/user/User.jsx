@@ -3,9 +3,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import "./user.scss"
+import { useQuery } from '@tanstack/react-query';
+import { makeRequest } from '../../axios';
 
 function User(props) {
-  const { data, isAvatar, hiddenTime, isOnline } = props
+  const { data, isAvatar, hiddenTime, isOnline } = props;
+
+  const { isLoading: rIsLoading, data: relationshipData } = useQuery(
+    ["relationship"],
+    () =>
+      makeRequest.get("/relationships?followedUserId=" + data.id).then((res) => {
+        return res.data;
+      })
+  );
+
   return (
     <div className="userInfo">
       {
@@ -18,7 +29,7 @@ function User(props) {
 
             <div className="details">
               <Link
-                to={`/profile/${data.userId}`}
+                to={`/profile/${data.userId || data.id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
                 className="details__info"
               >

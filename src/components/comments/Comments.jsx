@@ -3,6 +3,7 @@ import "./comments.scss";
 import { AuthContext } from "../../context/authContext";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import moment from "moment";
 
 const Comments = ({ postId }) => {
@@ -39,7 +40,6 @@ const Comments = ({ postId }) => {
 
   return (
     <div className="comments">
-      <p>{postId}</p>
       <div className="write">
         <img src={currentUser.profilePic ? "/upload/" + currentUser.profilePic : currentUser?.avt} alt="" />
         <input
@@ -56,7 +56,7 @@ const Comments = ({ postId }) => {
           ? "loading"
           : data.map((comment) => (
             <div className="comment">
-              <img src={currentUser.profilePic ? "/upload/" + currentUser.profilePic : currentUser?.avt} alt="" />
+              <img src={comment?.profilePic ? "/upload/" + comment?.profilePic : comment?.avt} alt="" />
               <div className="info">
                 <span>{comment.name}</span>
                 <p>{comment.desc}</p>

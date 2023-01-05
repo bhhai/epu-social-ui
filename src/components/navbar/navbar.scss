@@ -22,8 +22,11 @@
       position: relative;
 
       span {
-        font-weight: bold;
-        font-size: 20px;
+        
+        &.logo {
+          font-weight: bold;
+          font-size: 20px;
+        }
         color: themed("logo");
       }
 
@@ -55,19 +58,28 @@
         position: absolute;
         border-radius: 4px;
         top: 40px;
-        left: 295px;
+        left: 270px;
         width: 500px;
+        height: 400px;
+        overflow-y: scroll;
         background-color: themed("bg");
         box-shadow: 0px 0px 25px -10px rgb(0 0 0 / 3);
         font-size: 14px;
 
         .label {
           font-size: 14px;
+          color: #000;
+          font-weight: 600;
+          margin-bottom: 20px;
         }
   
         .users {
           margin-top: 10px;
           font-size: 14px;
+
+          .user:not(:first-child) {
+            margin-top: 20px;
+          }
         }
       }
   

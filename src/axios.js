@@ -10,6 +10,6 @@ axios.interceptors.request.use(function (config) {
 });
 
 export const makeRequest = axios.create({
-  baseURL: "https://epu-social-api.onrender.com/api/",
+  baseURL: "http://43.206.232.0:8800/api/",
   withCredentials: true,
 });
