@@ -10,6 +10,6 @@ axios.interceptors.request.use(function (config) {
 });
 
 export const makeRequest = axios.create({
-  baseURL: "http://43.206.232.0:8800/api/",
+  baseURL: "http://localhost:8800/api/",
   withCredentials: true,
 });
